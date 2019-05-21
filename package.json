@@ -1,6 +1,6 @@
 {
 	"name": "diacritics-helper",
-	"version": "0.0.2",
+	"version": "0.0.3",
 	"description": "Removes diacritics from a string or make it searchable.",
 	"repository": "MammouthQc/DiacriticsHelper",
 	"author": {
@@ -8,8 +8,9 @@
 		"email": "olivier.st-louis-desjardins@radio-canada.ca"
 	},
 	"files": [
-		"src/index.js"
+		"./src/index.js"
 	],
+	"main": "./src/index.js",
 	"keywords": [
 		"diacritics",
 		"searchable"
