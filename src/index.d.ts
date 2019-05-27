@@ -1,7 +1,9 @@
-function removeDiacritics(originalString: string): string;
-function toSearchableString(originalString: string, filterSaints: boolean = true): string;
+export function removeDiacritics(originalString: string): string;
 
-export const result = {
-    removeDiacritics,
-    toSearchableString,
-};
+export function toSearchableString(originalString: string, filterSaints: boolean): string;
+
+export namespace removeDiacritics {
+}
+
+export namespace toSearchableString {
+}
