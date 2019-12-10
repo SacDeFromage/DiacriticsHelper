@@ -5,6 +5,7 @@ module.exports = {
 
 const regexSaint = /[^0-9A-Za-z]st[^0-9A-Za-z]|^st[^0-9A-Za-z]/g;
 const regexSainte = /[^0-9A-Za-z]ste[^0-9A-Za-z]|^ste[^0-9A-Za-z]/g;
+const regexWhiteSpace = /\s/g;
 
 const defaultDiacriticsRemovalMap = [
   { base: 'A', letters: /[\u0041\u24B6\uFF21\u00C0\u00C1\u00C2\u1EA6\u1EA4\u1EAA\u1EA8\u00C3\u0100\u0102\u1EB0\u1EAE\u1EB4\u1EB2\u0226\u01E0\u00C4\u01DE\u1EA2\u00C5\u01FA\u01CD\u0200\u0202\u1EA0\u1EAC\u1EB6\u1E00\u0104\u023A\u2C6F]/g },
@@ -111,14 +112,14 @@ function removeDiacritics(originalString) {
 }
 
 /**
- * Returns a new string without the diacritics of the original string and a lowered capitalization.
+ * Returns a new string without the diacritics of the original string, without spaces and with a lowered capitalization.
  * @param {string} originalString Original string with diacritics and any capitalization
  * @param {boolean} filterSaints Allows 'st' as a valid 'saint', and the same goes for 'ste' as a valid 'sainte' if true. Defaults to true.
  */
 function toSearchableString(originalString, filterSaints = true) {
   if (!originalString) return originalString;
 
-  let searchableString = removeDiacritics(originalString.toLowerCase());
+  let searchableString = removeDiacritics(originalString.toLowerCase().replace(regexWhiteSpace, ''));
 
   if (filterSaints) {
     searchableString = searchableString
