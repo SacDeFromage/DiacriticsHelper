@@ -1,6 +1,6 @@
 {
 	"name": "diacritics-helper",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"description": "Removes diacritics from a string or make it searchable.",
 	"repository": "MammouthQc/DiacriticsHelper",
 	"author": {
